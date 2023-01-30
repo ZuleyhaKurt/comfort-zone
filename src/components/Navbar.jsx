@@ -14,11 +14,14 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link, useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'About', 'Products'];
+
 
 
 function Navbar() {
+  
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -43,6 +46,7 @@ function Navbar() {
         <Toolbar disableGutters>
           
           <Typography
+            onClick={()=>navigate("/")}
             variant="h6"
             noWrap
             component="a"
@@ -89,11 +93,26 @@ function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem >
+                  <Typography textAlign="center" onClick={()=>navigate("/")}>
+                   
+                  Home
+                  </Typography>
+              </MenuItem>
+              <MenuItem >
+                  <Typography textAlign="center" onClick={()=>navigate("/about")}>
+                   
+                 About
+                  </Typography>
+              </MenuItem>
+              <MenuItem >
+                  <Typography textAlign="center" onClick={()=>navigate("/products")}>
+                   
+                  Product
+                  </Typography>
                 </MenuItem>
-              ))}
+          
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -108,34 +127,48 @@ function Navbar() {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+            
               color: 'black',
               textDecoration: 'none',
             }}
           >
-            LOGO
+           Comfort Zone
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } ,justifyContent:'center' }}>
-            {pages.map((page) => (
+          
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+             
+                onClick={() => navigate("/")}
                 sx={{ my: 2, color: 'black', display: 'block' ,px:'1.5rem' }}
               >
-                {page}
-              </Button>
-            ))}
+                Home
+            </Button>
+            <Button
+             
+             onClick={() => navigate("/about")}
+             sx={{ my: 2, color: 'black', display: 'block' ,px:'1.5rem' }}
+           >
+            About
+            </Button>
+            <Button
+             
+             onClick={() => navigate("/products")}
+             sx={{ my: 2, color: 'black', display: 'block' ,px:'1.5rem' }}
+           >
+           Products
+           </Button>
+            
           </Box>
 
          <Box sx={{ flexGrow: 0  }}>
                   <Tooltip title="Open settings" >
-                          <IconButton onClick={handleOpenUserMenu} sx={{ p: 1}}>
+              <IconButton onClick={() => navigate("/cart")} sx={{ p: 1}}>
                               Cart
                 <AddShoppingCartIcon/>
               </IconButton>
             </Tooltip>
             <Tooltip title="Open settings">
-                          <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
+              <IconButton onClick={() => navigate("/login")} sx={{ p: 1 }}>
                              
                               Login
                               <AccountCircleIcon/>
