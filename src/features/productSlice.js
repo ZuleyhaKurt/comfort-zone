@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios"
 
 const initialState = {
-    productList:[]
+    productList: [],
+    loading: false,
+    error :false,
 } 
 
 export const getProduct = createAsyncThunk(
@@ -13,6 +15,7 @@ export const getProduct = createAsyncThunk(
         const url = 'https://course-api.com/react-store-products';
         try {
             const { data } = await axios(url);
+            console.log(data);
             return data;
         } catch (error) {
              return rejectWithValue("Something went wrong");
@@ -27,8 +30,9 @@ const productSlice = createSlice({
         setProduct: (state, { payload }) => {
             state.productList = payload;
         },
-      
-
+        clearProduct: (state, { payload }) => {
+            state.productList = [];
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -46,6 +50,6 @@ const productSlice = createSlice({
     },
 });
 
-export const { setProduct } = productSlice.actions;
+export const { setProduct, } = productSlice.actions;
 
 export default productSlice.reducer;

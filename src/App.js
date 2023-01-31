@@ -6,20 +6,22 @@ import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
 import ProductsPage from './pages/ProductsPage';
-import ErrorPage from './pages/ErrorPage';
+import { Provider } from 'react-redux';
+import store from './app/store';
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-      <Route path='/' element={<HomePage/>}/>
-      <Route path='/login' element={<LoginPage/>}/>
-      <Route path='/about' element={<AboutPage/>}/>
-        <Route path='/cart' element={<CartPage />} />
-        <Route path='/products' element={<ProductsPage />} />
-        <Route path='/error' element={<ErrorPage />} />
-      </Routes>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/about' element={<AboutPage/>}/>
+          <Route path='/cart' element={<CartPage />} />
+          <Route path='/products' element={<ProductsPage />} />
+        </Routes>
     
-    </BrowserRouter>
+      </BrowserRouter>
+      </Provider>
    
   );
 }
