@@ -52,13 +52,13 @@ const Product = () => {
                       {item?.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {item?.price}
+                      {item?.price}$
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small" href={item?.url} target="_blank">
-                      Detail
+                    <Button size="small">Add to Basket</Button>
+                    <Button size="small" target="_blank">
+                     Like
                     </Button>
                   </CardActions>
                 </Card>

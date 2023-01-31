@@ -4,7 +4,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-      <Box sx={{ p: 3, backgroundColor: "black" }}>
+      <Box sx={{ p: 3, backgroundColor: "black" ,mt:20 }}>
           <Typography sx={{ color: 'white',  textAlign: 'center' }}>
               <p >2023 <span style={{color:"orange"}}>Comfort Zone</span> All rights reserved</p>
               </Typography>

@@ -8,10 +8,13 @@ import CartPage from './pages/CartPage';
 import ProductsPage from './pages/ProductsPage';
 import { Provider } from 'react-redux';
 import store from './app/store';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Navbar/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
           <Route path='/login' element={<LoginPage/>}/>
@@ -19,7 +22,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/products' element={<ProductsPage />} />
         </Routes>
-    
+      <Footer/>
       </BrowserRouter>
       </Provider>
    
