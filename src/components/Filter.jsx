@@ -2,7 +2,7 @@ import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel,
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import Category from './Category'
-import Search from './Search'
+// import SearchComp from './SearchComp'
 
 const Filter = () => {
 
@@ -15,7 +15,7 @@ const Filter = () => {
 
   return (
     <FormGroup  sx={{width:"10vw",my:"3rem", mx:"2rem", gap:"1rem"}}>
-       <Search/>
+       {/* <SearchComp/> */}
         <Category/>
         <Typography variant="h6">Company</Typography>
         <FormControl fullWidth>

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import store from "../app/store";
+
 
 const initialState = {
     categoryList: [],
@@ -15,12 +15,12 @@ export const getCategory = createAsyncThunk(
     async (thunkAPI, { rejectWithValue }) => {
         //! asyn callback function
         const url = 'https://course-api.com/react-store-products';
-        const selected = store.getState().category.choosen 
+      
         try {
             const { data } = await axios(url);
-            const result= data.filter((item) =>  item.category == selected ) 
+           
             return(
-              result
+             data
             );
         } catch (error) {
              return rejectWithValue("Something went wrong");

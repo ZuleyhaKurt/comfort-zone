@@ -2,19 +2,19 @@ import { Box, Button, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategory, setChoosen } from '../features/categorySlice'
-import { getFilter } from '../features/filterSlice';
+
 
 const Category = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    const { categoryList, loadingCategory, errorCategory } = useSelector((state) => state.category);
+    // const { categoryList, loadingCategory, errorCategory } = useSelector((state) => state.category);
   
 
     
     const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     dispatch(setChoosen(e.target.value))
-    //     dispatch(getCategory())
+    // //     e.preventDefault()
+    // //     dispatch(setChoosen(e.target.value))
+    // //     dispatch(getCategory())
 
       
 
