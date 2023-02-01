@@ -1,31 +1,22 @@
 import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Slider, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
+import Category from './Category'
+import Search from './Search'
 
 const Filter = () => {
 
-    const [rakam, setRakam]= useState()
+  const [rakam, setRakam]= useState()
     
-    // function valuetext(value: number) {
-    //     return (
-    //         `${value}`,
-    //         setRakam(value)
-    //     )
-    //   }
+      function valuetext(value) {
+        return `${value}`;
+        setRakam(value)
+      }
 
   return (
     <FormGroup  sx={{width:"10vw",my:"3rem", mx:"2rem", gap:"1rem"}}>
-        <input id="outlined-basic" label="Search" variant="outlined" style={{height:"2rem" , borderRadius:"0.3rem",border:"none" , borderStyle:"none",backgroundColor:"#f1f5f8" , }} placeholder="Search"   />
-        <Typography variant="h6">Catagory</Typography>
-        <Box sx={{display:"flex", flexDirection:"column", alignItems:"start"}}>
-                <Button sx={{color:"grey"}} variant="string" >All</Button>
-                <Button sx={{color:"grey"}} variant="text" >Office</Button>
-                <Button sx={{color:"grey"}} variant="text">Livingroom</Button>
-                <Button sx={{color:"grey"}} variant="text">Kitchen</Button>
-                <Button sx={{color:"grey"}} variant="text">Bedroom</Button>
-                <Button sx={{color:"grey"}} variant="text">Dining</Button>
-                <Button sx={{color:"grey"}} variant="text">Kids</Button>
-        </Box>
+       <Search/>
+        <Category/>
         <Typography variant="h6">Company</Typography>
         <FormControl fullWidth>
         
@@ -61,7 +52,7 @@ const Filter = () => {
         <Slider
             aria-label="Temperature"
             defaultValue={30}
-            // getAriaValueText={valuetext}
+            getAriaValueText={valuetext}
             valueLabelDisplay="auto"
             step={10}
             marks

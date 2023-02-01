@@ -23,15 +23,22 @@ const Home = () => {
     
       
         <>
-          <Container fixed maxWidth="xl" sx={{my:5,display:"flex",justifyContent:"between",gap:5 , height:"600px" , alignItems:"center"}}>
-              <Box maxWidth="sm" sx={{fontSize:"25px"}}>
-                  <h1>Design Your <br />Comfort Zone</h1>
-                  <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores id vitae nostrum perspiciatis labore inventore quas voluptas assumenda cupiditate voluptate!</p>
-                  <button>SHOP NOW</button>
+           <Box sx={{display: "flex",flexDirection: "row",justifyContent: "center", gap:"8rem" }}>
+              <Box align="start" sx={{display:"flex", flexDirection:"column", gap:"20px", width:"30vw",  justifyContent:"center"}}>
+                      <Typography variant="h2" >
+                              Desing Your Comfort Zone
+                      </Typography>
+                      <Typography variant="body3" align="justify">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum cum fuga laudantium? Excepturi reiciendis minus doloribus quas reprehenderit pariatur alias dolor veniam sit libero architecto, enim atque temporibus ipsam consequuntur!
+                      </Typography>
+                      <Button variant="contained" sx={{background:"orange", width:"10rem"}}>SHOP NOW</Button>     
               </Box>
-              <img src={hero1} alt="" width={'450px'} height={'500px' } />
-           
-        </Container>
+              <Box sx={{position:"relative", width:"30vw", m:"2rem"}}>
+                  <img className='imgone' src={hero1} alt="photobig" />
+                  <img className='imgtwo' src={hero2} alt="photolittle" />
+                  
+              </Box>
+        </Box>
                
         
           

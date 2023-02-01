@@ -157,13 +157,13 @@ function Navbar() {
           </Box>
 
          <Box sx={{ flexGrow: 0  }}>
-                  <Tooltip title="Open settings" >
+                  <Tooltip  >
               <IconButton onClick={() => navigate("/cart")} sx={{ p: 1}}>
                               Cart
                 <AddShoppingCartIcon/>
               </IconButton>
             </Tooltip>
-            <Tooltip title="Open settings">
+            <Tooltip >
               <IconButton onClick={() => navigate("/login")} sx={{ p: 1 }}>
                              
                               Login
