@@ -16,24 +16,24 @@ const Category = () => {
         e.preventDefault()
         // dispatch(setChoosen(e.target.value))
         console.log(productList)
-        setCategoryList(productList?.filter((item) =>  item?.category == e.target.value ))
+        dispatch(setCategoryList(productList?.filter((item) =>  item?.category == e.target.value )))
         // console.log(choosen)
         console.log(e.target.value)
-        console.log(categoryList)
+       
 
       
 
      }
     
-  
+     console.log(categoryList)
     return (
 
         <div>
             <Typography variant="h6">Category</Typography>
     <Box sx={{display:"flex", flexDirection:"column", alignItems:"start"}}>
-            <Button sx={{color:"grey"}} value="office" onClick={handleSubmit} variant="string" >All</Button>
+            <Button sx={{color:"grey"}} value="" onClick={handleSubmit} variant="string" >All</Button>
             <Button sx={{color:"grey"}} value="office" onClick={handleSubmit} variant="text" >Office</Button>
-            <Button sx={{color:"grey"}} value="livingroom" onClick={handleSubmit} variant="text">Livingroom</Button>
+            <Button sx={{color:"grey"}} value="living room" onClick={handleSubmit} variant="text">Livingroom</Button>
             <Button sx={{color:"grey"}} value="kitchen" onClick={handleSubmit} variant="text">Kitchen</Button>
             <Button sx={{color:"grey"}} value="bedroom" onClick={handleSubmit} variant="text">Bedroom</Button>
             <Button sx={{color:"grey"}} value="dining"onClick={handleSubmit} variant="text">Dining</Button>

@@ -12,7 +12,8 @@ import loadinGif from "../assets/loading.gif";
 import Filter from "./Filter";
 
 const Product = () => {
-    const { productList ,loading ,error} = useSelector((state) => state.product);
+  const { productList, loading, error } = useSelector((state) => state.product);
+  const { categoryList,choosen, } = useSelector((state) => state.category);
     const dispatch = useDispatch();
 
 
@@ -42,7 +43,7 @@ const Product = () => {
               justifyContent="space-evenly"
               flexWrap="wrap"
             >
-              {productList?.map((item, index) => (
+            {  (categoryList?.length ? categoryList : productList)?.map((item, index) => (
                 <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
                   <CardMedia
                           component="img"
