@@ -1,32 +1,13 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, } from "@reduxjs/toolkit";
+
 
 
 const initialState = {
     categoryList: [],
     choosen: "",
-    loadingCategory: false,
-    errorCategory: false,
+
 };
 
-export const getCategory = createAsyncThunk(
-    "getCategory", //! action types
-
-    async (thunkAPI, { rejectWithValue }) => {
-        //! asyn callback function
-        const url = 'https://course-api.com/react-store-products';
-      
-        try {
-            const { data } = await axios(url);
-           
-            return(
-             data
-            );
-        } catch (error) {
-             return rejectWithValue("Something went wrong");
-        }
-    }
-);
 
 
 const categorySlice = createSlice({
@@ -37,23 +18,14 @@ const categorySlice = createSlice({
             state.choosen = payload;
 
         },
+        setCategoryList: (state, { payload }) => {
+            state.categoryList = payload;
+
+        },
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(getCategory.pending, (state) => {
-                state.loading = true;
-            })
-            .addCase(getCategory.fulfilled, (state, { payload }) => {
-                state.categoryList = payload;
-                state.loadingCategory = false;
-             })
-            .addCase(getCategory.rejected, (state, { payload }) => {
-                state.loading = false;
-                state.errorCategory = payload;
-            });
-    },
+  
 });
 
-export const { setChoosen } = categorySlice.actions;
+export const { setChoosen ,setCategoryList} = categorySlice.actions;
 
 export default categorySlice.reducer;

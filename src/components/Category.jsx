@@ -1,20 +1,25 @@
 import { Box, Button, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategory, setChoosen } from '../features/categorySlice'
+import {  setChoosen,setCategoryList } from '../features/categorySlice'
 
 
 const Category = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const { categoryList, loadingCategory, errorCategory } = useSelector((state) => state.category);
+    const { categoryList,choosen, } = useSelector((state) => state.category);
+    const { productList } = useSelector((state) => state.product);
   
 
     
     const handleSubmit = (e) => {
-    // //     e.preventDefault()
-    // //     dispatch(setChoosen(e.target.value))
-    // //     dispatch(getCategory())
+        e.preventDefault()
+        // dispatch(setChoosen(e.target.value))
+        console.log(productList)
+        setCategoryList(productList?.filter((item) =>  item?.category == e.target.value ))
+        // console.log(choosen)
+        console.log(e.target.value)
+        console.log(categoryList)
 
       
 
@@ -26,7 +31,7 @@ const Category = () => {
         <div>
             <Typography variant="h6">Category</Typography>
     <Box sx={{display:"flex", flexDirection:"column", alignItems:"start"}}>
-            <Button sx={{color:"grey"}} value="All" onClick={handleSubmit} variant="string" >All</Button>
+            <Button sx={{color:"grey"}} value="office" onClick={handleSubmit} variant="string" >All</Button>
             <Button sx={{color:"grey"}} value="office" onClick={handleSubmit} variant="text" >Office</Button>
             <Button sx={{color:"grey"}} value="livingroom" onClick={handleSubmit} variant="text">Livingroom</Button>
             <Button sx={{color:"grey"}} value="kitchen" onClick={handleSubmit} variant="text">Kitchen</Button>
