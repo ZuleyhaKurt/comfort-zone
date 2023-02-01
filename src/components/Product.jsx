@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProduct,setProduct } from '../features/productSlice';
 import loadinGif from "../assets/loading.gif";
+import Filter from "./Filter";
 
 const Product = () => {
     const { productList ,loading ,error} = useSelector((state) => state.product);
@@ -32,8 +33,10 @@ const Product = () => {
             </Box>
           )}
           {!loading && (
-            <Box
-              xs={{ d: "flex" }}
+                <Box sx={{ display: "flex", flexDirection: "row", m: "5rem" }}>
+                    <Filter/>
+                <Box sx={{}}
+             xs={{ d: "flex" }}
               display="flex"
               alignItems="center"
               justifyContent="space-evenly"
@@ -42,8 +45,9 @@ const Product = () => {
               {productList?.map((item, index) => (
                 <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
                   <CardMedia
-                    component="img"
-                    height="250"
+                          component="img"
+                          width="175"
+                    height="175"
                     image={item?.image}
                     alt="img"
                   />
@@ -63,7 +67,8 @@ const Product = () => {
                   </CardActions>
                 </Card>
               ))}
-            </Box>
+                    </Box>
+                    </Box>
             )}
             </>
     )
