@@ -7,9 +7,10 @@ import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getProduct,setProduct } from '../features/productSlice';
+import { getProduct,setFinalList,setProduct } from '../features/productSlice';
 import loadinGif from "../assets/loading.gif";
 import Filter from "./Filter";
+import SortList from "./SortList";
 
 const Product = () => {
   const { productList, loading, error } = useSelector((state) => state.product);
@@ -18,8 +19,13 @@ const Product = () => {
 
 
     useEffect(() => {
-        dispatch(getProduct())
+      dispatch(getProduct())
+      return () => {
+        dispatch(setFinalList(productList))
+      }
+      
     }, [])
+ 
 
     return (
     <>
@@ -35,7 +41,9 @@ const Product = () => {
           )}
           {!loading && (
                 <Box sx={{ display: "flex", flexDirection: "row", m: "5rem" }}>
-                    <Filter/>
+            <Filter />
+            <Box>
+              <SortList/>
                 <Box sx={{}}
              xs={{ d: "flex" }}
               display="flex"
@@ -67,7 +75,8 @@ const Product = () => {
                     </Button>
                   </CardActions>
                 </Card>
-              ))}
+            ))}
+                </Box>
                     </Box>
                     </Box>
             )}

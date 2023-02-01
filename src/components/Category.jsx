@@ -2,6 +2,7 @@ import { Box, Button, Typography } from '@mui/material'
 
 import { useDispatch, useSelector } from 'react-redux';
 import {  setChoosen,setCategoryList } from '../features/categorySlice'
+import { setFinalList } from '../features/productSlice';
 
 
 const Category = () => {
@@ -19,7 +20,7 @@ const Category = () => {
         dispatch(setCategoryList(productList?.filter((item) =>  item?.category == e.target.value )))
         // console.log(choosen)
         console.log(e.target.value)
-       
+       dispatch(setFinalList(categoryList?.length? categoryList : productList))
 
       
 
