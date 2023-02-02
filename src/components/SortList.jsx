@@ -11,32 +11,20 @@ const SortList = () => {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        if (!categoryList?.length) {
+       
             if (e.target.value === "Lowest") {
-                let descendingOrder = [...productList.values()].sort((a, b) => a.price - b.price)
+                let descendingOrder = [...(categoryList?.length ? categoryList : productList).values()].sort((a, b) => a.price - b.price)
                 // dispatch(setSortingList(descendingOrder))
-                dispatch(setProduct(descendingOrder))
-
+                categoryList?.length ?  dispatch(setCategoryList(descendingOrder))  : dispatch(setProduct(descendingOrder))
+                  
+ 
             } else if (e.target.value === "Highest") {
-                let ascendingOrder = [...productList.values()].sort((a, b) => b.price - a.price)
+                let ascendingOrder = [...(categoryList?.length ? categoryList :productList).values()].sort((a, b) => b.price - a.price)
                 // dispatch(setSortingList(ascendingOrder))
-                dispatch(setProduct(ascendingOrder))
+                categoryList?.length ?  dispatch(setCategoryList(ascendingOrder))  : dispatch(setProduct(ascendingOrder))
             }
             
-        }
-           if(categoryList?.length){
-            if (e.target.value === "Lowest") {
-                let descendingOrder = [...categoryList.values()].sort((a, b) => a.price - b.price)
-                // dispatch(setSortingList(descendingOrder))
-                dispatch(setCategoryList(descendingOrder))
-       
-
-            } else if (e.target.value === "Highest") {
-                let ascendingOrder = [...categoryList.values()].sort((a, b) => b.price - a.price)
-                // dispatch(setSortingList(ascendingOrder))
-                dispatch(setCategoryList(ascendingOrder))
-            }
-        }
+        
        
 
     }
