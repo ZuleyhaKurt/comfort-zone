@@ -20,9 +20,9 @@ const Product = () => {
 
     useEffect(() => {
       dispatch(getProduct())
-      return () => {
-        dispatch(setFinalList(productList))
-      }
+      // return () => {
+      //   dispatch(setFinalList(productList))
+      // }
       
     }, [])
  

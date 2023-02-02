@@ -20,7 +20,7 @@ const Category = () => {
         dispatch(setCategoryList(productList?.filter((item) =>  item?.category == e.target.value )))
         // console.log(choosen)
         console.log(e.target.value)
-       dispatch(setFinalList(categoryList?.length? categoryList : productList))
+    //    dispatch(setFinalList(categoryList?.length? categoryList : productList))
 
       
 
