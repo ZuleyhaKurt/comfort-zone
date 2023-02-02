@@ -69,7 +69,7 @@ const Product = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">Add to Basket</Button>
+                    <Button size="small">Add to Cart</Button>
                     <Button size="small" target="_blank">
                      Like
                     </Button>
