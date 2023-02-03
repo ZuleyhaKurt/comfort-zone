@@ -11,16 +11,16 @@ import CardMedia from '@mui/material/CardMedia';
 import AlarmIcon from '@mui/icons-material/Alarm';
 import { Avatar, CardActionArea, TextField} from '@mui/material';
 import { useNavigate } from 'react-router-dom'
-import {  useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { getProduct } from '../features/productSlice'
 
 
 const Home = () => {
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   
   useEffect(() => {
-  dispatch(getProduct())
+  getProduct()
  
   }, [])
   
