@@ -11,6 +11,7 @@ import { getProduct,setFinalList,setProduct } from '../features/productSlice';
 import loadinGif from "../assets/loading.gif";
 import Filter from "./Filter";
 import SortList from "./SortList";
+import CardCom from "./CardCom";
 
 const Product = () => {
   const { productList, loading, error } = useSelector((state) => state.product);
@@ -25,6 +26,10 @@ const Product = () => {
       // }
       
     }, [])
+  
+  // const handleAddToCart = (item) => {
+    
+  // }
  
 
     return (
@@ -52,29 +57,7 @@ const Product = () => {
               flexWrap="wrap"
             >
             {  (categoryList?.length ? categoryList : productList)?.map((item, index) => (
-                <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
-                  <CardMedia
-                          component="img"
-                          width="175"
-                    height="175"
-                    image={item?.image}
-                    alt="img"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {item?.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {item?.price}$
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small">Add to Cart</Button>
-                    <Button size="small" target="_blank">
-                     Like
-                    </Button>
-                  </CardActions>
-                </Card>
+              <CardCom item={item} index={index} />
             ))}
                 </Box>
                     </Box>
