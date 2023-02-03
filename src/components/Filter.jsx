@@ -1,4 +1,4 @@
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Slider, TextField, Typography } from '@mui/material'
+import { Button, Checkbox, FormControl, FormControlLabel, FormGroup,  MenuItem, Select, Slider,  Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import Category from './Category'
@@ -8,9 +8,11 @@ const Filter = () => {
 
   const [rakam, setRakam]= useState()
     
-      function valuetext(value) {
-        return `${value}`;
+  function valuetext(value) {
         setRakam(value)
+        return  `${value}`
+        
+      
       }
 
   return (

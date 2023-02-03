@@ -1,15 +1,15 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { setCartCount, setCartItem, setFilterCartItem } from '../features/cartSlice';
-import {addToFavoriteList, removeFromFavouriteList} from "../features/favoriteSlice"
+// import {addToFavoriteList, removeFromFavouriteList} from "../features/favoriteSlice"
 
 const CardCom = ({ item, index }) => {
     const dispatch = useDispatch()
-    const navigate = useNavigate();
-    const { favoriteList } = useSelector(state => state.favorite)
-    const { cartOpen, cartItem ,cartCount,filterCartItem} = useSelector((state) => state.cart);
+    // const navigate = useNavigate();
+    // const { favoriteList } = useSelector(state => state.favorite)
+    const {  cartItem ,cartCount,filterCartItem} = useSelector((state) => state.cart);
 
 
     const handleAddToCart = (item) => {

@@ -18,9 +18,7 @@ const Product = () => {
 
     useEffect(() => {
       dispatch(getProduct())
-      // return () => {
-      //   dispatch(setFinalList(productList))
-      // }
+      
       
     }, [])
   
@@ -38,7 +36,7 @@ const Product = () => {
           )}
           {loading && (
             <Box display="flex" alignItems="center" justifyContent="center">
-              <img src={loadinGif} />
+              <img src={loadinGif} alt="load" />
             </Box>
           )}
           {!loading && (

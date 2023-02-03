@@ -1,14 +1,14 @@
 import { Box, Button, Typography } from '@mui/material'
 
 import { useDispatch, useSelector } from 'react-redux';
-import {  setChoosen,setCategoryList } from '../features/categorySlice'
-import { setFinalList } from '../features/productSlice';
+import {  setCategoryList } from '../features/categorySlice'
+
 
 
 const Category = () => {
     const dispatch = useDispatch();
 
-    const { categoryList,choosen, } = useSelector((state) => state.category);
+    const { categoryList} = useSelector((state) => state.category);
     const { productList } = useSelector((state) => state.product);
   
 
@@ -17,7 +17,7 @@ const Category = () => {
         e.preventDefault()
         // dispatch(setChoosen(e.target.value))
         console.log(productList)
-        dispatch(setCategoryList(productList?.filter((item) =>  item?.category == e.target.value )))
+        dispatch(setCategoryList(productList?.filter((item) =>  item?.category === e.target.value )))
         // console.log(choosen)
         console.log(e.target.value)
     //    dispatch(setFinalList(categoryList?.length? categoryList : productList))

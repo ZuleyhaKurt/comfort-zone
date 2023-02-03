@@ -5,12 +5,12 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import TextField from '@mui/material/TextField';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import images from '../assets/logo.svg'
+
 import { clearAll, removeItemFromCart, setCartCount, setCartItem } from '../features/cartSlice';
 
 const Cart = () => {
 
-    const { cartOpen, cartItem, cartCount ,filterCartItem} = useSelector((state) => state.cart);
+    const {  cartItem, filterCartItem} = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     const handleDelete = (item) => {

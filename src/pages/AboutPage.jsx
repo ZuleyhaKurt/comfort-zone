@@ -2,7 +2,7 @@ import  Box from '@mui/material/Box'
 import  Container  from '@mui/system/Container'
 import React from 'react'
 import hero1 from "../assets/hero-bcg.jpeg"
-import Navbar from '../components/Navbar'
+
 const AboutPage = () => {
   return (
     <>
