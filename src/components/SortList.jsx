@@ -2,12 +2,12 @@ import { Box } from '@mui/material'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryList } from '../features/categorySlice';
-import { setFinalList, setProduct, setSortingList } from '../features/productSlice';
+import {  setProduct, } from '../features/productSlice';
 
 const SortList = () => {
 
-    const { productList, finalList, sortingList } = useSelector((state) => state.product);
-    const { categoryList,choosen, } = useSelector((state) => state.category);
+    const { productList } = useSelector((state) => state.product);
+    const { categoryList } = useSelector((state) => state.category);
     const dispatch = useDispatch();
 
     const handleChange = (e) => {

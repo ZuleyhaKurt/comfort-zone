@@ -1,13 +1,10 @@
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+
 import Typography from "@mui/material/Typography";
-import { CardMedia } from "@mui/material";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { getProduct,setFinalList,setProduct } from '../features/productSlice';
+import { getProduct} from '../features/productSlice';
 import loadinGif from "../assets/loading.gif";
 import Filter from "./Filter";
 import SortList from "./SortList";
@@ -15,7 +12,7 @@ import CardCom from "./CardCom";
 
 const Product = () => {
   const { productList, loading, error } = useSelector((state) => state.product);
-  const { categoryList,choosen, } = useSelector((state) => state.category);
+  const { categoryList } = useSelector((state) => state.category);
     const dispatch = useDispatch();
 
 
