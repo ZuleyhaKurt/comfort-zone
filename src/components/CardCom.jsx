@@ -15,8 +15,12 @@ const CardCom = ({ item, index }) => {
     const handleAddToCart = (item) => {
         dispatch(setCartItem(item))
         dispatch(setCartCount())
-      console.log( filterCartItem.filter((i)=>i.id !== item.id).length)
-        if (filterCartItem.filter((i)=>i.id !== item.id).length) {
+        console.log(filterCartItem.filter((i) => i.id !== item.id).length)
+        if (!filterCartItem.length) {
+            dispatch(setFilterCartItem(item))
+        }
+        else if  (!filterCartItem.map((i) => i.id).includes(item.id)
+        ) {
             dispatch(setFilterCartItem(item))
         }
      }
