@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import React , { useEffect } from "react";
-import {  useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import { getProduct} from '../features/productSlice';
 import loadinGif from "../assets/loading.gif";
 import Filter from "./Filter";
@@ -13,11 +13,11 @@ import CardCom from "./CardCom";
 const Product = () => {
   const { productList, loading, error } = useSelector((state) => state.product);
   const { categoryList } = useSelector((state) => state.category);
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 
     useEffect(() => {
-      getProduct()
+      dispatch(getProduct())
       }, [])
   
   // const handleAddToCart = (item) => {
