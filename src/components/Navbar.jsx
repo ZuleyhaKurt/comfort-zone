@@ -15,11 +15,15 @@ import AdbIcon from '@mui/icons-material/Adb';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {  useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Badge } from '@mui/material';
 
 
 
 
 function Navbar() {
+
+  const {  cartCount } = useSelector((state) => state.cart);
   
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -158,10 +162,20 @@ function Navbar() {
 
          <Box sx={{ flexGrow: 0  }}>
                   <Tooltip  >
-              <IconButton onClick={() => navigate("/cart")} sx={{ p: 1}}>
-                              Cart
-                <AddShoppingCartIcon/>
-              </IconButton>
+                  <IconButton
+                size="large"
+                aria-label="show 17 new notifications"
+                color="gray"
+                onClick={() => navigate("/cart")}>
+                Cart
+              <Badge badgeContent={cartCount} color="error">
+                {/* burdaki badge contente state gelecek */}
+                <AddShoppingCartIcon
+                
+              
+                />
+              </Badge>
+            </IconButton>
             </Tooltip>
             <Tooltip >
               <IconButton onClick={() => navigate("/login")} sx={{ p: 1 }}>
