@@ -168,7 +168,7 @@ function Navbar() {
                 color="gray"
                 onClick={() => navigate("/cart")}>
                 Cart
-              <Badge badgeContent={cartCount} color="error">
+              <Badge badgeContent={cartCount} color="warning">
                 {/* burdaki badge contente state gelecek */}
                 <AddShoppingCartIcon
                 

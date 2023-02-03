@@ -37,13 +37,14 @@ const Cart = () => {
 
         <>
              <Box>
-                    <div >
+                    <div style={{display:"flex" , justifyContent:"center"}} >
                         
 
                             {filterCartItem?.map((item, index) => {
 
                            
-                                return (<div style={{ display: "flex" }} key={index}>
+                                return (
+                                    <div style={{ display: "flex", justifyContent:"center"}} key={index}>
                                     <Card>
                                         <CardMedia
                                             component="img"
@@ -69,13 +70,13 @@ const Cart = () => {
                                                 </Typography>
 
                                                 <Typography sx={{ fontSize: 14, color: "red", fontWeight: "bold" }} >
-                                                    {item?.price} TL
+                                                    {item?.price} $
                                                 </Typography>
                                                 <div style={{ fontSize: 12, color: "black", fontWeight: "bold", display: "flex", justifyContent: "flex-start" }} >
 
-                                                    {/* <TextField id="outlined-basic" variant="outlined"
-                                                        value={(basketItem?.filter((i) => i?.id === item?.id)).length}
-                                                        size="small" /> */}
+                                                    <TextField id="outlined-basic" variant="outlined"
+                                                        value={(cartItem?.filter((i) => i?.id === item?.id)).length}
+                                                        size="small" />
                                                     <div>
                                                         <ArrowDropUpIcon style={{ height: "1rem" }} onClick={() => handleIncrease(item)} />
                                                         <ArrowDropDownIcon style={{ height: "1rem" }}
@@ -101,13 +102,14 @@ const Cart = () => {
                         }
                     </div>
 
-                <Typography id="modal-modal-description" sx={{ mt: 2, mr: 10 }} style={{ textAlign: "end" }}>
-                    Subtotal
+                <Typography id="modal-modal-description" sx={{ mt: 2, mr: 10 }} style={{ textAlign:"center"}}>
+                    {/* Subtotal = {(filterCartItem[0].price).toFixed(2)*cartCount}  $ */}
+                Subtotal :
                         {/* Subtotal({basketCount} items):{(basketItem?.reduce((acc, current) => acc + current?.price, 0)).toFixed(2)}TL */}
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 ,display:"flex",justifyContent:"center"}}>
 
-                        <Button size="small" style={{ background: "orange", color: "white" }}>BUY NOW</Button>
+                        <Button size="small" style={{ background: "orange", color: "white" ,textAlign:"center", marginRight:5 }}>BUY NOW</Button>
                         <Button size="small" style={{ background: "grey", color: "black" }}
                             onClick={handleClear}>CLEAR CART</Button>
                     </Typography>
