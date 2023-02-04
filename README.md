@@ -1,5 +1,5 @@
 
-https://comfort-zone-chge7lsl7-zuleyhakurt.vercel.app/
+https://comfort-zone-git-main-zuleyhakurt.vercel.app/
 
 # Getting Started with Create React App
 
