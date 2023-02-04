@@ -3,23 +3,31 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import TextField from '@mui/material/TextField';
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { clearAll, removeItemFromCart, setCartCount, setCartItem } from '../features/cartSlice';
+import { clearAll, removeItemFromCart, setCartCount, setcartDecrease, setCartItem } from '../features/cartSlice';
 
 const Cart = () => {
 
-    const {  cartItem, filterCartItem} = useSelector((state) => state.cart);
+    const {cartCount,  cartItem, filterCartItem} = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+    const[decValue,setDecValue]= useState()
 
     const handleDelete = (item) => {
         dispatch(removeItemFromCart(item))
         
     }
 
-    const handleDecrease = () => {
-       
+    const handleDecrease = (item) => {
+      if((cartItem?.filter((i) => i?.id === item?.id)).length >1){
+            let index = cartItem?.findIndex((i) => i === item)
+            let arrayforchange = [...cartItem]
+            arrayforchange.splice(index, 1)
+            dispatch(setcartDecrease(arrayforchange))
+            dispatch(setCartCount())
+        }
+        console.log((cartItem?.filter((i) => i?.id === item?.id)).length)
     }
     
     const handleClear = () => {
