@@ -25,8 +25,12 @@ console.log(filterCartItem)
     return ( 
         <>
               {favoriteList.length ? (
-            <Box >
- <div style={{display:"flex" ,justifyContent:"center"}}>
+                <Box >
+                     <div style={{height:"150px", backgroundColor:"#eaded7" , display:"flex" , alignItems:"center"}}>
+                     <h1 style={{padding:"2rem 2rem 2rem 9rem" }}><a style={{textDecoration:"none", color:"#795744"}}  href="/">Home / </a>Favorite</h1>
+                     </div> 
+ 
+                    <div style={{ display: "flex", justifyContent: "center" }}>
                 {favoriteList?.map((item, index) => {
                     return (
                         <Card sx={{ maxWidth: 300, m: 5, maxHeight: 600, minWidth: 300 }} key={index} >

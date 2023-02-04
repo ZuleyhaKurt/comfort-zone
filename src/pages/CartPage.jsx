@@ -36,7 +36,7 @@ const CartPage = () => {
       {cartCount && (
         <>
         <div style={{height:"150px", backgroundColor:"#eaded7" , display:"flex" , alignItems:"center"}}>
-        <h1 style={{padding:"2rem 2rem 2rem 9rem" }}><a style={{textDecoration:"none", color:"#795744"}} href="/">Home / </a>About</h1>
+        <h1 style={{padding:"2rem 2rem 2rem 9rem" }}><a style={{textDecoration:"none", color:"#795744"}} href="/">Home / </a>Cart</h1>
     </div> 
     
           <Cart />
