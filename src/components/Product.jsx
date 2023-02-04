@@ -20,9 +20,9 @@ const Product = () => {
       dispatch(getProduct())
       }, [])
   
-  // const handleAddToCart = (item) => {
+
     
-  // }
+
  
 
     return (
