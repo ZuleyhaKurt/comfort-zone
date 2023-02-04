@@ -27,13 +27,7 @@ const CardCom = ({ item, index }) => {
         }
      }
 
-    // const handleFavourite = (item) => {
-    //     if (favoriteList.includes(item)) {
-    //     return dispatch(removeFromFavouriteList(item))
-
-
-    // }
-    // dispatch(addToFavoriteList(item))}
+ 
   
     const handleFavorite = (item) => {
       
@@ -71,7 +65,7 @@ const CardCom = ({ item, index }) => {
                   <CardActions>
                     <Button onClick={()=>handleAddToCart(item)} size="small">Add to Cart</Button>
                     <Button  size="small" target="_blank" onClick={() => handleFavorite(item)}>
-                    <FavoriteBorderIcon />
+           
                    {favoriteList?.map((i)=>i.id).includes(item.id)  ? <FavoriteBorderIcon sx={{fill:"red"}}/> : <FavoriteBorderIcon />}   
                     
                     </Button>

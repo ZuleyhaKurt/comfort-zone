@@ -26,7 +26,7 @@ console.log(filterCartItem)
         <>
               {favoriteList.length ? (
             <Box >
- <div style={{display:"flex"}}>
+ <div style={{display:"flex" ,justifyContent:"center"}}>
                 {favoriteList?.map((item, index) => {
                     return (
                         <Card sx={{ maxWidth: 300, m: 5, maxHeight: 600, minWidth: 300 }} key={index} >
