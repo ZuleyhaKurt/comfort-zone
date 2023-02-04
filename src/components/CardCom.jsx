@@ -1,14 +1,16 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { setCartCount, setCartItem, setFilterCartItem } from '../features/cartSlice';
-// import {addToFavoriteList, removeFromFavouriteList} from "../features/favoriteSlice"
+
+import {addToFavoriteList, removeFromFavouriteList} from "../features/favoriteSlice"
 
 const CardCom = ({ item, index }) => {
     const dispatch = useDispatch()
     // const navigate = useNavigate();
-    // const { favoriteList } = useSelector(state => state.favorite)
+    const { favoriteList } = useSelector(state => state.favorite)
     const {  cartItem ,cartCount,filterCartItem} = useSelector((state) => state.cart);
 
 
@@ -32,6 +34,17 @@ const CardCom = ({ item, index }) => {
 
     // }
     // dispatch(addToFavoriteList(item))}
+  
+    const handleFavorite = (item) => {
+      
+      if (favoriteList.map((i)=>i.id).includes(item.id)) {
+        dispatch(removeFromFavouriteList(item))
+     }
+     else {
+      dispatch(addToFavoriteList(item))
+     }
+    
+    }
 
     console.log(cartItem)
     console.log(cartCount)
@@ -57,8 +70,10 @@ const CardCom = ({ item, index }) => {
                   </CardContent>
                   <CardActions>
                     <Button onClick={()=>handleAddToCart(item)} size="small">Add to Cart</Button>
-                    <Button  size="small" target="_blank">
-                     Like
+                    <Button  size="small" target="_blank" onClick={() => handleFavorite(item)}>
+                    <FavoriteBorderIcon />
+                   {favoriteList?.map((i)=>i.id).includes(item.id)  ? <FavoriteBorderIcon sx={{fill:"red"}}/> : <FavoriteBorderIcon />}   
+                    
                     </Button>
                   </CardActions>
                 </Card>

@@ -16,16 +16,22 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {  useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Badge } from '@mui/material';
+import { Badge, Modal } from '@mui/material';
+import Favorite from './Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 
 
 function Navbar() {
 
-  const {  cartCount } = useSelector((state) => state.cart);
+  const { cartCount } = useSelector((state) => state.cart);
+  const [open, setOpen] = React.useState(false);
   
   const navigate = useNavigate();
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
 
@@ -160,7 +166,9 @@ function Navbar() {
             
           </Box>
 
-         <Box sx={{ flexGrow: 0  }}>
+          <Box sx={{ flexGrow: 0 }}>
+          <Button onClick={() => navigate("/favorite")}><FavoriteIcon sx={{color:"gray"}} /></Button>
+                   
                   <Tooltip  >
                   <IconButton
                 size="large"
@@ -177,6 +185,7 @@ function Navbar() {
               </Badge>
             </IconButton>
             </Tooltip>
+            
             <Tooltip >
               <IconButton onClick={() => navigate("/login")} sx={{ p: 1 }}>
                              

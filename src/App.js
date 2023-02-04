@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import store from './app/store';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FavoritePage from './pages/FavoritePage';
 function App() {
   return (
     <Provider store={store}>
@@ -21,6 +22,7 @@ function App() {
           <Route path='/about' element={<AboutPage/>}/>
           <Route path='/cart' element={<CartPage />} />
           <Route path='/products' element={<ProductsPage />} />
+          <Route path='/favorite' element={<FavoritePage/>} />
         </Routes>
       <Footer/>
       </BrowserRouter>
