@@ -49,8 +49,8 @@ const cartSlice = createSlice({
             state.cartItem = []
             state.filterCartItem=[]
             localStorage.setItem('cart', JSON.stringify(state.cartItem))
-            localStorage.setItem('cart', JSON.stringify(state.filterCartItem))
-            state.cartCount = ""
+            localStorage.setItem('filtercart', JSON.stringify(state.filterCartItem))
+            state.cartCount = state.cartItem.length
             localStorage.setItem('cartCount', JSON.stringify(state.cartCount))
         },
         setcartDecrease: (state, { payload }) => {

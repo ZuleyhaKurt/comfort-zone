@@ -1,5 +1,6 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import React from 'react'
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
@@ -66,7 +67,7 @@ const CardCom = ({ item, index }) => {
                     <Button onClick={()=>handleAddToCart(item)} size="small">Add to Cart</Button>
                     <Button  size="small" target="_blank" onClick={() => handleFavorite(item)}>
            
-                   {favoriteList?.map((i)=>i.id).includes(item.id)  ? <FavoriteBorderIcon sx={{fill:"red"}}/> : <FavoriteBorderIcon />}   
+                   {favoriteList?.map((i)=>i.id).includes(item.id)  ? <FavoriteRoundedIcon sx={{fill:"red"}}/> : <FavoriteBorderIcon/>}   
                     
                     </Button>
                   </CardActions>

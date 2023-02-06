@@ -113,16 +113,12 @@ const Cart = () => {
                     </div>
 
                 <Typography id="modal-modal-description" sx={{ mt: 2, mr: 10 }} style={{ textAlign:"center"}}>
-                    {/* Subtotal = {(filterCartItem[0].price).toFixed(2)*cartCount}  $ */}
-              
-                    Subtotal :
+                    {/* Subtotal({cartCount} items) : {(cartItem?.reduce((acc, item) => acc + item?.price, 0))} */}
                     {filterCartItem?.map((item) => {
-                         total  = 3 * item?.price
-                        subtotal = subtotal + total
-                        return subtotal
+                        subtotal = subtotal + (cartItem.filter((i)=> i.id === item.id).length * item.price)
                     })}
-                        
-                        {/* Subtotal({basketCount} items):{(basketItem?.reduce((acc, current) => acc + current?.price, 0)).toFixed(2)}TL */}
+                     Subtotal({cartCount} items) : 
+                    {subtotal}
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 ,display:"flex",justifyContent:"center"}}>
 
