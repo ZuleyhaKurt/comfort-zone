@@ -9,15 +9,17 @@ const SearchComp = () => {
   const dispatch = useDispatch()
   const [entered, setEntered] = useState("")
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
+  
   setEntered(e.target.value)
 
 }
 
 
 
-const something = (event) => {
-  if (event.keyCode === 13) {
+  const something = (e) => {
+
+  if (e.keyCode === 13 ) {
     dispatch(setSearch(entered))
     if(!company && !category){
       dispatch(setFinalList(productList?.filter((item) => (item?.name.includes(entered)))))
@@ -41,7 +43,7 @@ const something = (event) => {
 
   return (
       <div>
-           <input onKeyDown={(i) => something(i)} onChange={handleChange} id="outlined-basic" label="Search" variant="outlined" style={{height:"2rem" , borderRadius:"0.3rem",border:"none" , borderStyle:"none",backgroundColor:"#f1f5f8" , }} placeholder="Search"  />
+           <input onKeyUp={(i) => something(i)} onChange={handleChange} id="outlined-basic" label="Search" variant="outlined" style={{height:"2rem" , borderRadius:"0.3rem",border:"none" , borderStyle:"none",backgroundColor:"#f1f5f8" , }} placeholder="Search"  />
     </div>
   )
 }

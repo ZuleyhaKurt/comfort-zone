@@ -65,11 +65,11 @@ const Filter = () => {
             onChange={handleChange}
         >
            
-            <MenuItem value={10}>all</MenuItem>
-            <MenuItem value={20}>marcos</MenuItem>
-            <MenuItem value={30}>liddy</MenuItem>
-            <MenuItem value={40}>ikea</MenuItem>
-            <MenuItem value={50}>caressa</MenuItem>
+            <MenuItem value="">all</MenuItem>
+            <MenuItem value="marcos">marcos</MenuItem>
+            <MenuItem value="liddy">liddy</MenuItem>
+            <MenuItem value="ikea">ikea</MenuItem>
+            <MenuItem value="caressa">caressa</MenuItem>
         </Select>
         </FormControl>
         <Typography variant="h6">Color</Typography>

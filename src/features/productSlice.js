@@ -7,7 +7,7 @@ const initialState = {
     sortingList:[],
     loading: false,
     error: false,
-    company: "",
+    company:"",
     search:"",
 } 
 
