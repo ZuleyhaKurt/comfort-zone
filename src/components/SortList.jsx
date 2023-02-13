@@ -6,23 +6,23 @@ import {  setProduct, } from '../features/productSlice';
 
 const SortList = () => {
 
-    const { productList } = useSelector((state) => state.product);
-    const { categoryList } = useSelector((state) => state.category);
+    const { productList,finalList} = useSelector((state) => state.product);
+   
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
        
-            if (e.target.value === "Lowest") {
-                let descendingOrder = [...(categoryList?.length ? categoryList : productList).values()].sort((a, b) => a.price - b.price)
-                // dispatch(setSortingList(descendingOrder))
-                categoryList?.length ?  dispatch(setCategoryList(descendingOrder))  : dispatch(setProduct(descendingOrder))
+            // if (e.target.value === "Lowest") {
+            //     let descendingOrder = [...(categoryList?.length ? categoryList : productList).values()].sort((a, b) => a.price - b.price)
+            //     // dispatch(setSortingList(descendingOrder))
+            //     categoryList?.length ?  dispatch(setCategoryList(descendingOrder))  : dispatch(setProduct(descendingOrder))
                   
  
-            } else if (e.target.value === "Highest") {
-                let ascendingOrder = [...(categoryList?.length ? categoryList :productList).values()].sort((a, b) => b.price - a.price)
-                // dispatch(setSortingList(ascendingOrder))
-                categoryList?.length ?  dispatch(setCategoryList(ascendingOrder))  : dispatch(setProduct(ascendingOrder))
-            }
+            // } else if (e.target.value === "Highest") {
+            //     let ascendingOrder = [...(categoryList?.length ? categoryList :productList).values()].sort((a, b) => b.price - a.price)
+            //     // dispatch(setSortingList(ascendingOrder))
+            //     categoryList?.length ?  dispatch(setCategoryList(ascendingOrder))  : dispatch(setProduct(ascendingOrder))
+            // }
             
         
        
@@ -34,7 +34,7 @@ const SortList = () => {
   return (
       <>
           <Box display="flex" alignItems="center"sx={{gap:5 , mt:5 , ml:5}} >
-              <p>{(categoryList?.length ?   categoryList : productList)?.length} Products Found</p>
+              <p>{(finalList?.length ?   finalList : productList)?.length} Products Found</p>
               <hr  style={{ width:"50%", display: "block",
                   border: "none",
     borderBottom:"1px solid #808080",

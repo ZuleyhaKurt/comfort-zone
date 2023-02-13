@@ -6,7 +6,9 @@ const initialState = {
     finalList:[],
     sortingList:[],
     loading: false,
-    error :false,
+    error: false,
+    company: "",
+    search:"",
 } 
 
 export const getProduct = createAsyncThunk(
@@ -43,6 +45,12 @@ const productSlice = createSlice({
         clearProduct: (state, { payload }) => {
             state.productList = [];
         },
+        setCompany : (state,{payload}) => {
+            state.company = payload;
+        },
+        setSearch : (state,{payload}) => {
+            state.search = payload;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -60,6 +68,6 @@ const productSlice = createSlice({
     },
 });
 
-export const { setProduct,setSortingList,setFinalList } = productSlice.actions;
+export const { setProduct,setSortingList,setFinalList,setCompany,setSearch } = productSlice.actions;
 
 export default productSlice.reducer;

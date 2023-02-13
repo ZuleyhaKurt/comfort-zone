@@ -1,10 +1,17 @@
 import { Button, Checkbox, FormControl, FormControlLabel, FormGroup,  MenuItem, Select, Slider,  Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Category from './Category'
 import SearchComp from './SearchComp'
 
+import { setCompany, setFinalList } from '../features/productSlice';
+
 const Filter = () => {
+
+  const dispatch = useDispatch();
+  const { category, } = useSelector((state) => state.category);
+  const { productList, search ,company} = useSelector((state) => state.product);
 
   const [rakam, setRakam]= useState()
     
@@ -13,7 +20,34 @@ const Filter = () => {
         return  `${value}`
         
       
-      }
+  }
+  
+
+
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    console.log(e.target.value)
+    dispatch(setCompany(e.target.value))
+    console.log(productList)
+ 
+    //  productList.filter((item)=>(item.category === category && item.company == company))
+    //  console.log(productList?.filter((item) => (item?.company === company)))
+    if (!category && !search) {
+      dispatch(setFinalList(productList?.filter((item) => (item?.company === e.target.value))))
+   
+    } else if (!category) {
+      dispatch(setFinalList(productList?.filter((item) => (item?.company === e.target.value && item?.name.includes(search)))))
+    } else if (!search) {
+      dispatch(setFinalList(productList?.filter((item) => (item?.company === e.target.value && item?.category === category))))
+    } else {
+      dispatch(setFinalList(productList?.filter((item) => (item?.category === category && item?.company === e.target.value && item?.name.includes(search)))))
+   
+    }
+ 
+
+
+  }
 
   return (
     <FormGroup  sx={{width:"10vw",my:"3rem", mx:"2rem", gap:"1rem"}}>
@@ -28,7 +62,7 @@ const Filter = () => {
             // id="demo-simple-select"
             // value={age}
             // label={value}
-            // onChange={handleChange}
+            onChange={handleChange}
         >
            
             <MenuItem value={10}>all</MenuItem>

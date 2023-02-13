@@ -1,32 +1,47 @@
 import { Box, Button, Typography } from '@mui/material'
 
 import { useDispatch, useSelector } from 'react-redux';
-import {  setCategoryList } from '../features/categorySlice'
 
+import {  setCategory,} from '../features/categorySlice'
+import {  setFinalList } from '../features/productSlice';
 
 
 const Category = () => {
     const dispatch = useDispatch();
 
-    const { categoryList} = useSelector((state) => state.category);
-    const { productList } = useSelector((state) => state.product);
+   
+    const { productList,  company, search} = useSelector((state) => state.product);
   
 
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        // dispatch(setChoosen(e.target.value))
-        console.log(productList)
-        dispatch(setCategoryList(productList?.filter((item) =>  item?.category === e.target.value )))
-        // console.log(choosen)
+        console.log("hellooooo")
         console.log(e.target.value)
-    //    dispatch(setFinalList(categoryList?.length? categoryList : productList))
+        dispatch(setCategory(e.target.value))
+        console.log(productList)
+       // burada prıduct u değiştirecek filtreleyecek olan fonksiyonu çağıracağız
+       
+      //  console.log(productList?.filter((item) => (item?.category === category)))
+        
 
-      
+        if(!company && !search){
+            dispatch(setFinalList(productList?.filter((item) => (item?.category === e.target.value))))
+        }else if(!company){
+            dispatch(setFinalList(productList?.filter((item) => (item?.category === e.target.value && item?.name.includes(search)))))
+          console.log("hello")
+        }else if(!search){
+             dispatch(setFinalList(productList?.filter((item) => (item?.category === e.target.value && item?.company === company))))
+        }else {
+            dispatch(setFinalList(productList?.filter((item)=>(item?.category === e.target.value && item?.company === company && item?.name.includes(search))))) 
+            
+        }
+        
+       
 
      }
     
-     console.log(categoryList)
+
     return (
 
         <div>
