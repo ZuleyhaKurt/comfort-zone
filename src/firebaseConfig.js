@@ -31,7 +31,8 @@ export const signInWithGoogle = () => {
   
   
   export const logOut = () => {
-    signOut(auth);
+      signOut(auth);
+      
    
   };
  
