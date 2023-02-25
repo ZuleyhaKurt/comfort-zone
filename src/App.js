@@ -11,6 +11,7 @@ import store from './app/store';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FavoritePage from './pages/FavoritePage';
+import RegisterPage from './pages/RegisterPage';
 function App() {
   return (
     <Provider store={store}>
@@ -18,7 +19,9 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
-          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage/>} />
+          
           <Route path='/about' element={<AboutPage/>}/>
           <Route path='/cart' element={<CartPage />} />
           <Route path='/products' element={<ProductsPage />} />

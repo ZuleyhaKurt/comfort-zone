@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyAGb8ojrP5JiYHTUgQy_DIG0IGzCjEoDQE",
     authDomain: "comfort-zone-c907b.firebaseapp.com",
@@ -17,6 +18,7 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider()
 
 export const signInWithGoogle = () => {
+    
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result)
@@ -26,6 +28,7 @@ export const signInWithGoogle = () => {
         }).catch((error) =>{
           console.log(error)
         })
+
       }
   
   export const auth = getAuth(app)
