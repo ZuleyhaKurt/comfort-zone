@@ -19,7 +19,9 @@ import { useSelector } from 'react-redux';
 import { Badge, Modal } from '@mui/material';
 import Favorite from './Favorite';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import avatar from '../assets/profil.webp';
+import { logOut} from '../firebaseConfig';
+import { borderRadius } from '@mui/system';
 
 
 
@@ -27,6 +29,7 @@ function Navbar() {
 
   const { cartCount } = useSelector((state) => state.cart);
   const [open, setOpen] = React.useState(false);
+  const { currentUser} = useSelector((state) => state.users);
   
   const navigate = useNavigate();
   const handleOpen = () => setOpen(true);
@@ -186,13 +189,25 @@ function Navbar() {
             </IconButton>
             </Tooltip>
             
-            <Tooltip >
+            {currentUser ? (
+              <>
+    
+                <IconButton  onClick={() => logOut()}>
+                  LogOut
+                <img src={currentUser?.photoURL || avatar} style={{ height: 25, width: 25, borderRadius:"50%",paddingLeft:5}} />
+                </IconButton>
+              </>
+            
+            
+            ) :
+            (<> 
               <IconButton onClick={() => navigate("/login")} sx={{ p: 1 }}>
                              
                               Login
                               <AccountCircleIcon/>
               </IconButton>
-            </Tooltip>
+             </>) 
+          } 
             
           </Box>
         </Toolbar>

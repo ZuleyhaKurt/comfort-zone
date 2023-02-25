@@ -12,16 +12,36 @@ import AlarmIcon from '@mui/icons-material/Alarm';
 import { Avatar, CardActionArea, TextField} from '@mui/material';
 import { useNavigate } from 'react-router-dom'
 import {  useDispatch, useSelector } from 'react-redux';
-import { getProduct } from '../features/productSlice'
+import { getProduct } from '../features/productSlice';
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../firebaseConfig'
+import { setCurrentUser } from '../features/usersSlice'
 
 
 const Home = () => {
 
   const dispatch = useDispatch()
+
+
+
+
+  const userObserver = (setCurrentUser) => {
+    //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const {email, displayname, photoURL} = user
+       dispatch(setCurrentUser({email, displayname, photoURL}))
+        console.log(user);
+      } else {
+        console.log("user signed out");
+        dispatch(setCurrentUser(false))
+      }
+    });
+};
   
   useEffect(() => {
   dispatch(getProduct())
- 
+  userObserver(setCurrentUser)
   }, [])
   
     const { productList } = useSelector((state) => state.product);

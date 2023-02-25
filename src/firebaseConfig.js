@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import {getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut} from "firebase/auth";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAGb8ojrP5JiYHTUgQy_DIG0IGzCjEoDQE",
@@ -34,5 +35,9 @@ export const signInWithGoogle = () => {
       signOut(auth);
       
    
-  };
+};
+  
+
  
+
+  
