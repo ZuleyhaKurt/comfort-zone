@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FavoritePage from './pages/FavoritePage';
 import RegisterPage from './pages/RegisterPage';
+import CardDetail from './pages/CardDetail';
 function App() {
   return (
     <Provider store={store}>
@@ -26,6 +27,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/favorite' element={<FavoritePage/>} />
+          <Route path='/details' element={<CardDetail/>} />
         </Routes>
       <Footer/>
       </BrowserRouter>

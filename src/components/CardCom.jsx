@@ -3,14 +3,14 @@ import React from 'react'
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { setCartCount, setCartItem, setFilterCartItem } from '../features/cartSlice';
 
 import {addToFavoriteList, removeFromFavouriteList} from "../features/favoriteSlice"
 
 const CardCom = ({ item, index }) => {
     const dispatch = useDispatch()
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const { favoriteList } = useSelector(state => state.favorite)
     const {  cartItem ,cartCount,filterCartItem} = useSelector((state) => state.cart);
 
@@ -47,7 +47,7 @@ const CardCom = ({ item, index }) => {
 
   return (
       <>
-    <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
+      <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index} onClick={() => { navigate("/details", { state: item }) }}>
                   <CardMedia
                           component="img"
                           width="175"
